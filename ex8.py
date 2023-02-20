@@ -7,17 +7,19 @@ n = int(input('Введите n: '))
 m = int(input('Введите m: '))
 k = int(input('Введите k: '))
 
+# необходимо, чтобы требуемое количество долек было кратно хотя бы одной стороне и суммарное количество долек в шоколадке было больше или равно необходимому количеству
+print("можно" if (k % n == 0 or k % m == 0) and (m * n >= k) else "нельзя")
 
-isPossible = False # объявляем флаг возможности решения
-
-for i in range(1, m): 
-    if (n * i == k):
-        isPossible = True
-        break
-if (not isPossible):
-    for i in range(1, n - 1): # m * n - уже проверяли в предыдущем цикле, поэтому n - 1
-        if (m * i == k):
-            isPossible = True
-            break
-
-print("можно" if isPossible else "нельзя")
+# Первая версия, сначала хотел решить перебором :-)
+# isPossible = False  # объявляем флаг возможности решения
+# # перебираем все возможные варианты, сначала по стороне n
+# for i in range(1, m):
+#     if (n * i == k):
+#         isPossible = True
+#         break
+# if (not isPossible):
+#     for i in range(1, n - 1):  # m * n - уже проверяли в предыдущем цикле, поэтому n - 1
+#         if (m * i == k):
+#             isPossible = True
+#             break
+# print("можно" if isPossible else "нельзя")
